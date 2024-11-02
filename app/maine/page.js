@@ -69,7 +69,7 @@ const HomePage = () => {
             Ready to Create Magic?
           </h2>
           <p className="mt-4 text-lg text-gray-300">
-            Let's make your vision a reality with our tailored event solutions.
+            Lets make your vision a reality with our tailored event solutions.
           </p>
           <motion.button
             whileHover={{ scale: 1.1 }}
