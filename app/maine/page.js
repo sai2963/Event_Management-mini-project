@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
+import ContentComp from "@/components/content";
 
 // Dynamically import RevealOnScroll with ssr disabled
 const RevealOnScroll = dynamic(() => import("@/components/RevealOnScroll"), {
@@ -69,32 +70,6 @@ const EventLanding = () => {
     { number: "98%", label: "Client Satisfaction" },
     { number: "15+", label: "Years Experience" },
   ];
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  // Animation variants for individual text elements
-  const textVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
 
   // Render fallback during hydration phase
   if (!isMounted) {
@@ -138,51 +113,7 @@ const EventLanding = () => {
         </section>
       </RevealOnScrollComponent>
 
-      <section>
-        <div className="min-h-screen flex items-center justify-center p-8">
-          <motion.section
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <motion.div
-              variants={textVariants}
-              className="mb-6 text-3xl md:text-5xl font-bold leading-relaxed tracking-tight"
-            >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600">
-                We are{" "}
-              </span>
-              <span className="text-white">
-                storytellers, wizards, builders, producers, planners, problem
-                solvers.
-              </span>
-            </motion.div>
-
-            <motion.div
-              variants={textVariants}
-              className="mb-6 text-3xl md:text-5xl font-bold leading-relaxed tracking-tight"
-            >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600">
-                We are{" "}
-              </span>
-              <span className="text-white">
-                creatives, innovators, disruptors, dreamers, doers.
-              </span>
-            </motion.div>
-
-            <motion.div
-              variants={textVariants}
-              className="text-3xl md:text-5xl font-bold tracking-tight"
-            >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600">
-                We are{" "}
-              </span>
-              <span className="text-white">23 Layers.</span>
-            </motion.div>
-          </motion.section>
-        </div>
-      </section>
+      <ContentComp />
 
       {/* Features Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
