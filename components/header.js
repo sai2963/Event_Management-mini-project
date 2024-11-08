@@ -41,7 +41,7 @@ const Header = () => {
 
 
                     <div className="md:hidden">
-                        <button
+                        <button aria-label="Side bar"
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                             className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-all duration-300"
                         >

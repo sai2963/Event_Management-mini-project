@@ -66,7 +66,7 @@ export default function ContentComp() {
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600">
               We are{" "}
             </span>
-            <span className="text-white">23 Layers.</span>
+            <span className="text-white">EventMaster.</span>
           </motion.div>
         </motion.section>
       </section>
