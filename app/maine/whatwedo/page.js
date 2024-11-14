@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
+import Link from "next/link";
 
 export default function Wedo() {
   const ref = React.useRef(null);
@@ -37,6 +38,7 @@ export default function Wedo() {
         "Gather your friends and colleagues for a night of fun and networking. Our social events are designed to bring people together in a relaxed and engaging atmosphere.",
       image:
         "https://inspiredoccasionskc.com/wp-content/uploads/2020/09/1S-Starry-Dinner-1536x1024.jpg",
+        href:"social-events"
     },
     {
       title: "Corporate Events",
@@ -44,6 +46,7 @@ export default function Wedo() {
         "From team-building activities to client-facing presentations, our corporate events are tailored to help your business succeed.",
       image:
         "https://www.cvent.com/sites/default/files/styles/column_content_width/public/image/2020-09/Cvent-Corporate-event.jpg?itok=iVB_rKva",
+        href:"corporate-events",
     },
     {
       title: "Work Shops",
@@ -51,6 +54,7 @@ export default function Wedo() {
         "Expand your knowledge and skills through our expert-led workshops. Whether you're a beginner or an experienced professional, we have something for everyone.",
       image:
         "https://th.bing.com/th/id/OIP.q_g0dPRR3Wz09xxtF4FqkQHaE8?rs=1&pid=ImgDetMain",
+        href:"work-shop",
     },
     {
       title: "Family Events",
@@ -58,6 +62,7 @@ export default function Wedo() {
         "Bring your loved ones together for a memorable experience. Our family-friendly events cater to all ages and create lasting memories.",
       image:
         "https://i.pinimg.com/originals/9b/8f/32/9b8f3275c79db1f3ff9f0ab974f55655.jpg",
+        href:"family-event",
     },
   ];
 
@@ -101,12 +106,12 @@ export default function Wedo() {
                   </p>
                 </div>
                 <div className="mt-6">
-                  <button
+                <Link href={`/maine/whatwedo/${service.href}`}
                     className="px-6 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium 
                     hover:from-purple-600 hover:to-pink-600 transform hover:-translate-y-0.5 transition-all duration-200"
                   >
                     Learn More
-                  </button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
