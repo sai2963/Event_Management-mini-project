@@ -1,4 +1,4 @@
-import "../../app/globals.css"
+//import "../../app/globals.css"
 import Header from "@/components/header";
 
 
@@ -10,9 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        
-      >
+      <body>
         <Header/>
         {children}
       </body>
