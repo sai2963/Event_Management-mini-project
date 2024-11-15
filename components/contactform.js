@@ -1,11 +1,9 @@
 "use client";
-
 import React from "react";
-
 import { motion } from "framer-motion";
 import FormSubmit from "./ContactFormStatus";
 export default function Contact_Form({ action }) {
-  let errors = action.errors;
+  //let errors = action.errors;
   return (
     <>
       <motion.div
