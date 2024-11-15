@@ -3,7 +3,9 @@
 import React from "react";
 
 import { motion } from "framer-motion";
-export default function Contact_Form({action}) {
+import FormSubmit from "./ContactFormStatus";
+export default function Contact_Form({ action }) {
+  let errors = action.errors;
   return (
     <>
       <motion.div
@@ -18,7 +20,7 @@ export default function Contact_Form({action}) {
             whileInView={{ y: 0 }}
             className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text"
           >
-            Contact Us
+            Drop us a Note
           </motion.h1>
 
           <motion.div
@@ -41,6 +43,7 @@ export default function Contact_Form({action}) {
                     id="firstname"
                     name="firstname"
                     className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                    required
                   />
                 </motion.div>
 
@@ -56,6 +59,7 @@ export default function Contact_Form({action}) {
                     id="lastname"
                     name="lastname"
                     className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                    required
                   />
                 </motion.div>
 
@@ -71,6 +75,7 @@ export default function Contact_Form({action}) {
                     id="phone"
                     name="phone"
                     className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                    required
                   />
                 </motion.div>
 
@@ -86,6 +91,7 @@ export default function Contact_Form({action}) {
                     id="email"
                     name="email"
                     className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                    required
                   />
                 </motion.div>
 
@@ -102,6 +108,7 @@ export default function Contact_Form({action}) {
                   <select
                     id="event"
                     name="event"
+                    required
                     className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                   >
                     <option value="">Select Event Type</option>
@@ -126,22 +133,32 @@ export default function Contact_Form({action}) {
                     id="description"
                     name="description"
                     rows="4"
+                    required
                     className="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                   ></textarea>
                 </motion.div>
               </div>
-
+              {/* {errors.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-red-500/10 border border-red-500 rounded-lg p-4 mb-4"
+                >
+                  <ul className="list-disc list-inside">
+                    {errors.map((error) => (
+                      <li className="text-red-400 text-sm" key={error}>
+                        {error}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )} */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex justify-center"
               >
-                <button
-                  type="submit"
-                  className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold text-white shadow-lg hover:shadow-purple-500/30 transition-all duration-300"
-                >
-                  Send Message
-                </button>
+                <FormSubmit />
               </motion.div>
             </form>
           </motion.div>

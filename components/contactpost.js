@@ -17,7 +17,23 @@ export default async function PostMessage(formData) {
     event,
     description,
     createdAt: new Date(),
+
   };
+
+  let errors=[];
+
+  if(!firstname || firstname.trim().length ===0){
+    errors.push('First Name is required')
+  }
+  if(!lastname || lastname.trim().length ===0){
+    errors.push('Last Name is required')
+  }
+  if(!phone || phone.trim().length ===0){
+    errors.push(' Phone Number is required')
+  }
+  if(!description || description.trim().length ===0){
+    errors.push('First Name is required')
+  }
 
   if (!Contact_Data) {
     throw new Error("Retry After Some Time");
