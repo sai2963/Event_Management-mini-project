@@ -13,10 +13,10 @@ const fadeInUp = {
 
 export default function AddEventForm() {
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
-    const formData = new FormData(e.target); // Get form data
-    const result = await createEvent(formData); // Call createEvent with formData
+    const formData = new FormData(e.target);
+    const result = await createEvent(formData);
 
     if (result.success) {
       alert(`Event created successfully! Event ID: ${result.id}`);
@@ -46,7 +46,7 @@ export default function AddEventForm() {
         <motion.form
           className="space-y-8 backdrop-blur-lg bg-white/10 rounded-2xl p-8 shadow-2xl"
           variants={fadeInUp}
-          onSubmit={handleSubmit} // Add onSubmit handler
+          onSubmit={handleSubmit}
         >
           <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
             <motion.div className="space-y-2" variants={fadeInUp}>

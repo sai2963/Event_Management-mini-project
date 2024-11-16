@@ -12,7 +12,7 @@ export default function EventImage() {
           console.log(progress);
         },
       });
-      return res.url; // Ensure this returns the URL
+      return res.url; 
     } catch (error) {
       console.log("Error uploading image:", error);
       throw error;
