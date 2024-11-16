@@ -1,39 +1,31 @@
-import { db, storage } from "@/firebase/clientApp";
+"use server";
+
+import { db } from "@/firebase/clientApp";
 import { addDoc, collection } from "firebase/firestore";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-export default async function EventPost(formData) {
-  "use server";
-  const organization = formData.get("organization");
-  const event = formData.get("event");
-  const image = formData.get("image");
-  const phone = formData.get("phone");
-  const email = formData.get("email");
-  const shortnote = formData.get("short-note");
-  const description = formData.get("description");
-  const name = formData.get("name");
-  const fee = formData.get("fee");
+export default async function createEvent(formData) {
+  try {
+    const Event_Data = {
+      organization: formData.get("organization"),
+      event: formData.get("event"),
+      imageUrl: formData.get("imageUrl"),
+      phone: formData.get("phone"),
+      email: formData.get("email"),
+      shortnote: formData.get("short-note"),
+      description: formData.get("description"),
+      name: formData.get("name"),
+      fee: formData.get("fee"),
+      createdAt: new Date(),
+    };
 
-  const StorageRef=ref(storage,`images/${image.name}`)
-  await uploadBytes(StorageRef,image,{content:image.type});
-  const imageUrl=await getDownloadURL(StorageRef);
-  const Event_Data = {
-    organization,
-    event,
-    imageUrl,
-    phone,
-    email,
-    shortnote,
-    description,
-    name,
-    fee,
-    createdAt: new Date(),
-  };
+    if (!Event_Data.organization || !Event_Data.event) {
+      return { error: "Organization and Event fields are required" };
+    }
 
-  
-
-  if (!Event_Data) {
-    throw new Error("Retry After Some Time");
+    const docRef = await addDoc(collection(db, "Event Data"), Event_Data);
+    return { success: true, id: docRef.id };
+  } catch (error) {
+    console.error("Error adding event to Firestore:", error);
+    return { error: error.message };
   }
-  const docRef = await addDoc(collection(db, "Event Data"), Event_Data);
 }

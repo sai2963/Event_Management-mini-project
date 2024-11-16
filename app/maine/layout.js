@@ -1,6 +1,5 @@
-//import "../../app/globals.css"
 import Header from "@/components/header";
-
+import { EdgeStoreProvider } from "@/lib/edgestore";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,8 +10,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header/>
-        {children}
+        <Header />
+        <EdgeStoreProvider>{children}</EdgeStoreProvider>
       </body>
     </html>
   );
