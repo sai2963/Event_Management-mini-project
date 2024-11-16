@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    // Path aliases
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
@@ -8,7 +7,7 @@
       "@styles/*": ["./src/styles/*"],
       "@utils/*": ["./src/utils/*"]
     },
-    // TypeScript compilation settings
+
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
