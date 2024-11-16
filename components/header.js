@@ -12,6 +12,7 @@ const Header = () => {
     { label: "Press", href: "#press" },
     { label: "About Us", href: "#about" },
     { label: "Contact", href: "/maine/contact" },
+    { label: "Respnse", href: "/maine/contact-response" },
   ];
 
   return (

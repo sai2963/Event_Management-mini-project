@@ -1,18 +1,19 @@
-'use client'
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const backgroundImages = [
-  '/api/placeholder/1920/1080',
-  '/api/placeholder/1920/1080',
-  '/api/placeholder/1920/1080'
+  "https://inspiredoccasionskc.com/wp-content/uploads/2020/09/1S-Starry-Dinner-1536x1024.jpg",
+  "https://www.cvent.com/sites/default/files/styles/column_content_width/public/image/2020-09/Cvent-Corporate-event.jpg?itok=iVB_rKva",
+  "https://th.bing.com/th/id/OIP.q_g0dPRR3Wz09xxtF4FqkQHaE8?rs=1&pid=ImgDetMain",
+  "https://i.pinimg.com/originals/9b/8f/32/9b8f3275c79db1f3ff9f0ab974f55655.jpg",
 ];
 
 const Home_Page = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -27,8 +28,9 @@ const Home_Page = () => {
       {backgroundImages.map((img, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-30' : 'opacity-0'
-            }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            index === currentImageIndex ? "opacity-30" : "opacity-0"
+          }`}
         >
           <img
             src={img}
@@ -38,9 +40,7 @@ const Home_Page = () => {
         </div>
       ))}
 
-
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/50 via-black/50 to-blue-900/50" />
-
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -56,7 +56,8 @@ const Home_Page = () => {
           </h1>
 
           <p className="max-w-2xl mx-auto mb-12 text-xl sm:text-2xl text-gray-300">
-            Create unforgettable experiences with our premium event management platform
+            Create unforgettable experiences with our premium event management
+            platform
           </p>
           <Link href="/maine">
             <motion.button
@@ -68,9 +69,7 @@ const Home_Page = () => {
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </Link>
-
         </motion.div>
-
 
         <div className=" absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent" />
         <div className="absolute -top-24 left-1/2 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl -translate-x-1/2" />
