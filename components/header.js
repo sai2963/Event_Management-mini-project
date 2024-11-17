@@ -31,7 +31,7 @@ const Header = () => {
 
           <nav className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 className="relative group text-gray-300 hover:text-white transition-colors duration-300 text-sm font-medium"
@@ -40,7 +40,7 @@ const Header = () => {
                   {item.label}
                 </span>
                 <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-teal-400 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-              </a>
+              </Link>
             ))}
           </nav>
 

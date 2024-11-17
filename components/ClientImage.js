@@ -2,7 +2,11 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import EventImage from "./eventimage";
-
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 },
+};
 export default function ClientImageUpload() {
   const [uploading, setUploading] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
@@ -37,6 +41,7 @@ export default function ClientImageUpload() {
   return (
     <motion.div
       className="space-y-2 sm:col-span-2"
+      variants={fadeInUp}
       whileHover={{ scale: 1.02 }}
     >
       <label

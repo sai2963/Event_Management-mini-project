@@ -11,7 +11,7 @@ export default function AddEvent() {
   const [state, formAction] = useActionState(createEvent, initialState);
   return (
     <>
-      <AddEventForm action={formAction} />
+      <AddEventForm action={createEvent} state={state}/>
     </>
   );
 }

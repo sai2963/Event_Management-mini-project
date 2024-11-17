@@ -2,8 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import ClientImageUpload from "./ClientImage";
-import createEvent from "./addeventpost";
+import EventFormSubmit from "./EventFormStatus";
+import ClientImageUpload from "./ClientImage"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -11,20 +11,7 @@ const fadeInUp = {
   exit: { opacity: 0, y: -20 },
 };
 
-export default function AddEventForm() {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.target);
-    const result = await createEvent(formData);
-
-    if (result.success) {
-      alert(`Event created successfully! Event ID: ${result.id}`);
-    } else {
-      alert(`Error creating event: ${result.error}`);
-    }
-  };
-
+export default function AddEventForm({ action, state }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
       <motion.div
@@ -43,12 +30,27 @@ export default function AddEventForm() {
           </motion.h1>
         </div>
 
+       
+        {state?.message && (
+          <div
+            className={`mb-6 p-4 rounded-lg ${
+              state.message.success ? "bg-green-500" : "bg-red-500"
+            } text-white`}
+          >
+            {state.message.success
+              ? "Event created successfully!"
+              : state.message.errors?.join(", ") || "An error occurred"}
+          </div>
+        )}
+
         <motion.form
           className="space-y-8 backdrop-blur-lg bg-white/10 rounded-2xl p-8 shadow-2xl"
           variants={fadeInUp}
-          onSubmit={handleSubmit}
+          method="POST"
+          action={action}
         >
           <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+           
             <motion.div className="space-y-2" variants={fadeInUp}>
               <label
                 htmlFor="organization"
@@ -65,6 +67,7 @@ export default function AddEventForm() {
               />
             </motion.div>
 
+           
             <motion.div className="space-y-2" variants={fadeInUp}>
               <label
                 htmlFor="event"
@@ -80,6 +83,8 @@ export default function AddEventForm() {
                 required
               />
             </motion.div>
+
+          
             <motion.div className="space-y-2" variants={fadeInUp}>
               <label
                 htmlFor="eventdate"
@@ -88,7 +93,7 @@ export default function AddEventForm() {
                 Event Date
               </label>
               <input
-                type="Date"
+                type="date"
                 id="eventdate"
                 name="eventdate"
                 className="mt-1 block w-full rounded-lg bg-gray-900 border border-gray-700 text-gray-100 px-4 py-2 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 ease-in-out"
@@ -96,8 +101,12 @@ export default function AddEventForm() {
               />
             </motion.div>
 
-            <ClientImageUpload />
+           
+            <motion.div variants={fadeInUp}>
+              <ClientImageUpload />
+            </motion.div>
 
+            
             <motion.div className="space-y-2" variants={fadeInUp}>
               <label
                 htmlFor="phone"
@@ -106,13 +115,14 @@ export default function AddEventForm() {
                 Mobile Number
               </label>
               <input
-                type="number"
+                type="tel"
                 id="phone"
                 name="phone"
                 className="mt-1 block w-full rounded-lg bg-gray-900 border border-gray-700 text-gray-100 px-4 py-2 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 ease-in-out"
               />
             </motion.div>
 
+         
             <motion.div className="space-y-2" variants={fadeInUp}>
               <label
                 htmlFor="email"
@@ -128,21 +138,23 @@ export default function AddEventForm() {
               />
             </motion.div>
 
+     
             <motion.div className="space-y-2 sm:col-span-2" variants={fadeInUp}>
               <label
-                htmlFor="short-note"
+                htmlFor="shortnote"
                 className="block text-sm font-medium text-purple-300"
               >
-                Short-Note About The Event
+                Short Note About The Event
               </label>
               <textarea
-                id="short-note"
-                name="short-note"
+                id="shortnote"
+                name="shortnote"
                 rows={3}
                 className="mt-1 block w-full rounded-lg bg-gray-900 border border-gray-700 text-gray-100 px-4 py-2 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 ease-in-out"
               />
             </motion.div>
 
+            
             <motion.div className="space-y-2 sm:col-span-2" variants={fadeInUp}>
               <label
                 htmlFor="description"
@@ -158,6 +170,7 @@ export default function AddEventForm() {
               />
             </motion.div>
 
+            
             <motion.div className="space-y-2" variants={fadeInUp}>
               <label
                 htmlFor="name"
@@ -173,6 +186,7 @@ export default function AddEventForm() {
               />
             </motion.div>
 
+            
             <motion.div className="space-y-2" variants={fadeInUp}>
               <label
                 htmlFor="fee"
@@ -189,17 +203,13 @@ export default function AddEventForm() {
             </motion.div>
           </div>
 
+          
           <motion.div
             className="flex justify-center pt-6"
             variants={fadeInUp}
             whileHover={{ scale: 1.05 }}
           >
-            <button
-              type="submit"
-              className="px-8 py-3 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white font-semibold shadow-lg hover:shadow-xl transform transition-all duration-200 ease-in-out hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900"
-            >
-              Register Event
-            </button>
+            <EventFormSubmit />
           </motion.div>
         </motion.form>
       </motion.div>
