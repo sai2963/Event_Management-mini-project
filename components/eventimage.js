@@ -1,8 +1,9 @@
 "use client";
-import { useEdgeStore } from "@/lib/edgestore";
+import { useEdgeStore } from "../lib/edgestore";
 
 export default function EventImage() {
   const { edgestore } = useEdgeStore();
+  
 
   const uploadImage = async (file) => {
     try {

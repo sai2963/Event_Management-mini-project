@@ -1,5 +1,6 @@
-import Header from "@/components/header";
-import { EdgeStoreProvider } from "@/lib/edgestore";
+//import { EdgeStoreProvider } from "@edgestore/server/providers/edgestore";
+import Header from "../../components/header";
+import { EdgeStoreProvider } from "../../lib/edgestore";
 
 export const metadata = {
   title: "Create Next App",

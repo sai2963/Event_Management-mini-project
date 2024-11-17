@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import ContentComp from "@/components/content";
+import ContentComp from "../../components/content";
+//import ContentComp from "@/components/content";
+
 
 // Dynamically import RevealOnScroll with ssr disabled
-const RevealOnScroll = dynamic(() => import("@/components/RevealOnScroll"), {
+const RevealOnScroll = dynamic(() => import("../../components/RevealOnScroll"), {
   ssr: false,
 });
 

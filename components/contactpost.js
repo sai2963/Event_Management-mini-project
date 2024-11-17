@@ -1,4 +1,4 @@
-import { db } from "@/firebase/clientApp";
+import { db } from "../firebase/clientApp";
 import { addDoc, collection } from "firebase/firestore";
 export default async function PostMessage(formData) {
     'use server'
