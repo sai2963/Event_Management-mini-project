@@ -8,6 +8,7 @@ export default async function createEvent(formData) {
     const Event_Data = {
       organization: formData.get("organization"),
       event: formData.get("event"),
+      eventdate: formData.get("eventdate"),
       imageUrl: formData.get("imageUrl"),
       phone: formData.get("phone"),
       email: formData.get("email"),

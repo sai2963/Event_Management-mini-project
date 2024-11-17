@@ -14,6 +14,7 @@ const Header = () => {
     { label: "Contact", href: "/maine/contact" },
     { label: "Respnse", href: "/maine/contact-response" },
     { label: "Add Event", href: "/maine/add-event" },
+    { label: "UpComing Events", href: "/maine/upcoming-events" },
   ];
 
   return (
