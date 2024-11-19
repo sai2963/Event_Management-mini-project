@@ -180,7 +180,7 @@ export default function ExploreEvent({ params }) {
                   transition={{ delay: 0.6 }}
                   className="mt-12 flex justify-center"
                 >
-                  <Link href={`/maine/upcoming-events/${eventId}/register`}>
+                  <Link href={`/maine/upcoming-events/${eventId}/${eventId}`}>
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
