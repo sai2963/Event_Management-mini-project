@@ -7,7 +7,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function EventRegistration({ params }) {
-  const EventId = params.slug;
+  const EventId = params.slugg;
   const [exploreEvent, setExploreEvent] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
