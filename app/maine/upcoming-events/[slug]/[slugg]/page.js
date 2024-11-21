@@ -106,7 +106,9 @@ export default function EventRegistration({ params }) {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="text-gray-300 text-center mb-6"
           >
-            <p className="text-xl font-semibold">Date: {exploreEvent.eventdate}</p>
+            <p className="text-xl font-semibold">
+              Date: {exploreEvent.eventdate}
+            </p>
           </motion.div>
 
           <form className="space-y-4">
@@ -136,25 +138,24 @@ export default function EventRegistration({ params }) {
                   type={field.type}
                   id={field.name}
                   name={field.name}
-                  
-                  
                   required
                   className="w-full px-4 py-2 bg-[#252642] border border-[#3a3a5e] rounded-xl text-white 
                 focus:outline-none focus:ring-2 focus:ring-purple-600 transition-all duration-300"
                 />
               </motion.div>
             ))}
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              type="submit"
-              className="w-full mt-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 
+            <Link href={`/maine/upcoming-events/${EventId}/${EventId}/${EventId}`}>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                type="submit"
+                className="w-full mt-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 
             rounded-xl text-white font-bold hover:from-purple-700 hover:to-pink-700 
             transition-all duration-300 transform hover:shadow-xl hover:shadow-purple-500/30"
-            >
-              Register Now
-            </motion.button>
+              >
+                Register Now
+              </motion.button>
+            </Link>
           </form>
         </motion.div>
       </div>
