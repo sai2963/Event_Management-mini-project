@@ -1,5 +1,5 @@
 import React from "react";
-import { CalendarDays, MapPin, Ticket } from "lucide-react";
+import { CalendarDays, Euro, MapPin, Ticket } from "lucide-react";
 import Link from "next/link";
 
 const container = {
@@ -89,7 +89,7 @@ export default function UpEvents({ EventData }) {
                   <div className="flex items-center space-x-2 text-gray-300">
                     <Ticket className="w-5 h-5 text-purple-500" />
                     <span className="font-semibold text-purple-400">
-                      {edata.fee}
+                      {edata.fee} <Euro/>
                     </span>
                   </div>
                 </div>
