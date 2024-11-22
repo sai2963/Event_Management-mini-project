@@ -5,6 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../../firebase/clientApp";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Euro } from "lucide-react";
 
 export default function ExploreEvent({ params }) {
   const eventId = use(params).slug;
