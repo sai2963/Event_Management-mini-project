@@ -154,7 +154,7 @@ export default function ExploreEvent({ params }) {
                         Registration Fee
                       </h3>
                       <p className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                        ₹{exploreEvent.fee}
+                        {exploreEvent.fee} <Euro className="h-4 w-4" />
                       </p>
                     </motion.div>
                   )}

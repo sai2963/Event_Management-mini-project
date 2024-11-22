@@ -89,7 +89,7 @@ export default function UpEvents({ EventData }) {
                   <div className="flex items-center space-x-2 text-gray-300">
                     <Ticket className="w-5 h-5 text-purple-500" />
                     <span className="font-semibold text-purple-400">
-                      {edata.fee} <Euro/>
+                    {edata.fee} <Euro className="h-4 w-4" />
                     </span>
                   </div>
                 </div>
