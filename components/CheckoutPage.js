@@ -21,10 +21,15 @@ export  const CheckoutPage = ({ amount }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ amount: amount * 100 }),
+      
+      
     })
+    
+    
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
   }, [amount]);
+console.log(amount);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
