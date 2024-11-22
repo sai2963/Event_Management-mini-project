@@ -144,18 +144,21 @@ export default function EventRegistration({ params }) {
                 />
               </motion.div>
             ))}
-            <Link href={`/maine/upcoming-events/${EventId}/${EventId}/${EventId}`}>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                type="submit"
-                className="w-full mt-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              type="submit"
+              className="w-full mt-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 
             rounded-xl text-white font-bold hover:from-purple-700 hover:to-pink-700 
             transition-all duration-300 transform hover:shadow-xl hover:shadow-purple-500/30"
+            >
+              <Link
+                href={`/maine/upcoming-events/${EventId}/${EventId}/${EventId}`}
               >
                 Register Now
-              </motion.button>
-            </Link>
+              </Link>
+            </motion.button>
           </form>
         </motion.div>
       </div>

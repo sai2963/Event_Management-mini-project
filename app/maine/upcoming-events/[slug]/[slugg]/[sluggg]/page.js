@@ -1,7 +1,7 @@
 "use client";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../../../../firebase/clientApp";
-import {CheckoutPage} from '../../../../../../components/CheckoutPage'
+import {CheckoutPage} from '../../../../../../components/CheckoutPage';
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { Euro } from "lucide-react";
