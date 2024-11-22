@@ -74,7 +74,7 @@ export  const CheckoutPage = ({ amount }) => {
 
   return (
     <form onSubmit={handleSubmit} className="bg-white p-2 rounded-md">
-      {clientSecret && <PaymentElement />}
+      {clientSecret && <PaymentElement/>}
       {errorMessage && <div>{errorMessage}</div>}
       <button
         disabled={!stripe || loading}
