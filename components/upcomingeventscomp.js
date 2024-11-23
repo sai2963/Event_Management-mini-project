@@ -62,42 +62,46 @@ export default function UpEvents({ EventData }) {
               className="group relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
             >
               <Link href={`/maine/upcoming-events/${edata.id}`}>
-              <div className="aspect-w-16 aspect-h-9 w-full">
-                <img
-                  src={edata.imageUrl}
-                  alt={edata.shortnote}
-                  className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-
-              <div className="p-6 space-y-4">
-                <h3 className="text-xl font-semibold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-                  {edata.shortnote}
-                </h3>
-
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-2 text-gray-300">
-                    <MapPin className="w-5 h-5 text-purple-500" />
-                    <span>{edata.organization}</span>
-                  </div>
-
-                  <div className="flex items-center space-x-2 text-gray-300">
-                    <CalendarDays className="w-5 h-5 text-purple-500" />
-                    <span>{edata.eventdate}</span>
-                  </div>
-
-                  <div className="flex items-center space-x-2 text-gray-300">
-                    <Ticket className="w-5 h-5 text-purple-500" />
-                    <span className="font-semibold text-purple-400">
-                    {edata.fee} <Euro className="h-4 w-4" />
-                    </span>
-                  </div>
+                <div className="aspect-w-16 aspect-h-9 w-full">
+                  <img
+                    src={edata.imageUrl}
+                    alt={edata.shortnote}
+                    className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
 
-                <button className="w-full mt-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity">
-                  Explore More
-                </button>
-              </div>
+                <div className="p-6 space-y-4">
+                  <h3 className="text-xl font-semibold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+                    {edata.shortnote}
+                  </h3>
+
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-2 text-gray-300">
+                      <MapPin className="w-5 h-5 text-purple-500" />
+                      <span>{edata.organization}</span>
+                    </div>
+
+                    <div className="flex items-center space-x-2 text-gray-300">
+                      <CalendarDays className="w-5 h-5 text-purple-500" />
+                      <span>{edata.eventdate}</span>
+                    </div>
+
+                    <div className="flex items-center space-x-2 text-gray-300">
+                      <Ticket className="w-5 h-5 text-purple-500" />
+                      <span className="font-semibold text-purple-400">
+                        {edata.fee}
+                      </span>
+                      <span>
+                        {" "}
+                        <Euro className="h-4 w-4" />
+                      </span>
+                    </div>
+                  </div>
+
+                  <button className="w-full mt-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity">
+                    Explore More
+                  </button>
+                </div>
               </Link>
             </div>
           ))}
