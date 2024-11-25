@@ -3,6 +3,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
+export const metadata = {
+  title: "Payment Success",
+  description: "Your Payment has Succesfully Done",
+};
+
 const PaymentSuccess = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center px-4 py-8">

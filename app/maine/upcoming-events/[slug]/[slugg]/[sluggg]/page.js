@@ -1,4 +1,8 @@
 "use client";
+export const metadata = {
+  title: "Stripe Payment",
+  description: "It's Payment Page ",
+};
 
 import { CheckoutPage } from "../../../../../../components/CheckoutPage";
 import { Elements } from "@stripe/react-stripe-js";

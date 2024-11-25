@@ -1,5 +1,8 @@
 "use client";
-
+// export const metadata = {
+//   title: "Add Event",
+//   description: "You Can Add Your Events Here",
+// };
 
 import createEvent from "../../../components/addeventpost";
 import { useActionState } from "react";

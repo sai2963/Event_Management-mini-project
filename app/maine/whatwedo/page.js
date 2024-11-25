@@ -5,6 +5,11 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import Link from "next/link";
 
+// export const metadata = {
+//   title: "What We Do",
+//   description: "What We Events We Do",
+// };
+
 export default function Wedo() {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
