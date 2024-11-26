@@ -1,9 +1,9 @@
 import React from "react";
 
-import { db } from "../../../firebase/clientApp";
+import { db } from "../../../../firebase/clientApp";
 import { collection, getDocs } from "firebase/firestore";
 
-import UpEvents from "../../../components/upcomingeventscomp";
+import UpEvents from "../../../../components/upcomingeventscomp";
 
 export const metadata = {
   title: "Upcoming Events",

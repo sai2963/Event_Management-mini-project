@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
+
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
-import { useState, useEffect } from "react";
 import Link from "next/link";
+import { SignInButton } from "@clerk/nextjs";
 
 const backgroundImages = [
   "https://inspiredoccasionskc.com/wp-content/uploads/2020/09/1S-Starry-Dinner-1536x1024.jpg",
@@ -12,7 +13,7 @@ const backgroundImages = [
   "https://i.pinimg.com/originals/9b/8f/32/9b8f3275c79db1f3ff9f0ab974f55655.jpg",
 ];
 
-const Home_Page = () => {
+const HomePage = ({ userId }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -59,24 +60,34 @@ const Home_Page = () => {
             Create unforgettable experiences with our premium event management
             platform
           </p>
-          <Link href="/maine">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold text-lg transition-all duration-300 hover:from-blue-700 hover:to-purple-700 hover:shadow-lg hover:shadow-purple-500/25"
-            >
-              Get Started
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-          </Link>
-        </motion.div>
 
-        <div className=" absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent" />
-        <div className="absolute -top-24 left-1/2 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl -translate-x-1/2" />
-        <div className="absolute top-1/2 left-0 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl -translate-y-1/2" />
+          {userId ? (
+            <Link href="/main">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold text-lg transition-all duration-300 hover:from-blue-700 hover:to-purple-700 hover:shadow-lg hover:shadow-purple-500/25"
+              >
+                Start Planning
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+            </Link>
+          ) : (
+            <SignInButton>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold text-lg transition-all duration-300 hover:from-blue-700 hover:to-purple-700 hover:shadow-lg hover:shadow-purple-500/25"
+              >
+                Get Started
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+            </SignInButton>
+          )}
+        </motion.div>
       </div>
     </div>
   );
 };
 
-export default Home_Page;
+export default HomePage;

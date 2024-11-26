@@ -4,9 +4,9 @@
 //   description: "You Can Add Your Events Here",
 // };
 
-import createEvent from "../../../components/addeventpost";
+import createEvent from "../../../../components/addeventpost";
 import { useActionState } from "react";
-import AddEventForm from "../../../components/addeventform";
+import AddEventForm from "../../../../components/addeventform";
 const initialState = {
   message: null,
 };

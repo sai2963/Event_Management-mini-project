@@ -3,10 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
-export const metadata = {
-  title: "Payment Success",
-  description: "Your Payment has Succesfully Done",
-};
+
 
 const PaymentSuccess = () => {
   return (

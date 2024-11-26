@@ -1,8 +1,8 @@
 "use client";
 import { use } from "react";
-import EventFetcher from "../../../../../components/EventFetcher";
-import RegisterEvent from "../../../../../components/registereventpost";
-import RegisterEventForm from "../../../../../components/registereventform";
+import EventFetcher from "../../../../../../components/EventFetcher";
+import RegisterEvent from "../../../../../../components/registereventpost";
+import RegisterEventForm from "../../../../../../components/registereventform";
 import { useRouter } from "next/navigation";
 
 

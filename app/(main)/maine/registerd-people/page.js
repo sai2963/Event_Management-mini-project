@@ -1,6 +1,6 @@
-import { db } from "../../../firebase/clientApp";
+import { db } from "../../../../firebase/clientApp";
 import { collection, getDocs } from "firebase/firestore";
-import RegisteredPeople from '../../../components/registerdpeople';
+import RegisteredPeople from '../../../../components/registerdpeople';
 
 export const metadata = {
   title: "Registered  Participants",

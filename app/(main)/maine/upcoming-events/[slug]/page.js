@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../../../firebase/clientApp";
+import { db } from "../../../../../firebase/clientApp";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Euro, Calendar, MapPin, Clock, Users } from "lucide-react";

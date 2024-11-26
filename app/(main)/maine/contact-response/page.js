@@ -1,5 +1,5 @@
-import Response from "../../../components/response";
-import { db } from "../../../firebase/clientApp";
+import Response from "../../../../components/response";
+import { db } from "../../../../firebase/clientApp";
 import { collection, getDocs } from "firebase/firestore";
 
 export const metadata = {
