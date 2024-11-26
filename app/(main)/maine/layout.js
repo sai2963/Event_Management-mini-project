@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Header />
-        <EdgeStoreProvider>{children}</EdgeStoreProvider>
+        {children}
       </body>
     </html>
   );

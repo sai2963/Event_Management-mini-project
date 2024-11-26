@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { UserButton } from "@clerk/nextjs";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,7 +24,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
-            <Link href='/maine'>
+            <Link href="/maine">
               <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text hover:from-purple-500 hover:via-pink-600 hover:to-red-600 transition-all duration-300">
                 EventMaster
               </h1>
@@ -40,9 +41,13 @@ const Header = () => {
                 <span className="bg-gradient-to-r from-teal-400 to-blue-500 text-transparent bg-clip-text group-hover:from-teal-300 group-hover:to-blue-400">
                   {item.label}
                 </span>
+
                 <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-teal-400 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
             ))}
+            <span className="bg-gradient-to-r from-teal-400 to-blue-500 text-transparent bg-clip-text group-hover:from-teal-300 group-hover:to-blue-400">
+              <UserButton/>
+            </span>
           </nav>
 
           <div className="md:hidden">
