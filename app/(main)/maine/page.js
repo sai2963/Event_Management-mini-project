@@ -3,13 +3,16 @@ import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import ContentComp from "../../../components/content";
+import Link from "next/link";
 //import ContentComp from "@/components/content";
 
-
 // Dynamically import RevealOnScroll with ssr disabled
-const RevealOnScroll = dynamic(() => import("../../../components/RevealOnScroll"), {
-  ssr: false,
-});
+const RevealOnScroll = dynamic(
+  () => import("../../../components/RevealOnScroll"),
+  {
+    ssr: false,
+  }
+);
 
 const RevealOnScrollComponent = ({ children, delay = 0 }) => {
   const [isInView, setIsInView] = useState(false);
@@ -102,13 +105,15 @@ const EventLanding = () => {
               </RevealOnScrollComponent>
 
               <RevealOnScrollComponent delay={0.6}>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full text-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300"
-                >
-                  Start Planning
-                </motion.button>
+                <Link href='maine/whatwedo'>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full text-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300"
+                  >
+                    Start Planning
+                  </motion.button>
+                </Link>
               </RevealOnScrollComponent>
             </div>
           </div>
@@ -181,13 +186,15 @@ const EventLanding = () => {
               </RevealOnScrollComponent>
 
               <RevealOnScrollComponent delay={0.6}>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white text-purple-900 rounded-full text-lg font-semibold hover:bg-gray-100 transform transition-all duration-300"
-                >
-                  Schedule a Consultation
-                </motion.button>
+                <Link href="maine/contact">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-4 bg-white text-purple-900 rounded-full text-lg font-semibold hover:bg-gray-100 transform transition-all duration-300"
+                  >
+                    Schedule a Consultation
+                  </motion.button>
+                </Link>
               </RevealOnScrollComponent>
             </div>
           </div>
