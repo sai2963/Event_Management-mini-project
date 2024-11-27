@@ -20,7 +20,6 @@ const Header = () => {
     ...(isAdmin
       ? [
           { label: "Response", href: "/maine/contact-response" },
-
           { label: "Registered Events", href: "/maine/registerd-people" },
         ]
       : []),
@@ -172,6 +171,7 @@ const Header = () => {
       </AnimatePresence>
     </motion.header>
   );
+  
 };
 
 export default Header;

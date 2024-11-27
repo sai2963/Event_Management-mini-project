@@ -1,6 +1,7 @@
-import Response from "../../../../components/response";
+import { currentUser } from "@clerk/nextjs/server";
 import { db } from "../../../../firebase/clientApp";
 import { collection, getDocs } from "firebase/firestore";
+import Response from "../../../../components/response";
 
 export const metadata = {
   title: "Contact Response",
@@ -8,21 +9,28 @@ export const metadata = {
 };
 
 export default async function ContactResponse() {
+  
+
+  // Fetch user details from Clerk
+  const user = await currentUser()
+  const isAdmin = user?.publicMetadata?.role === "admin";
+
+  if (!isAdmin) {
+    throw new Error("You are not authenticated to access this page");
+  }
+
   const ContactRef = collection(db, "Contact Data");
   const querySnapShot = await getDocs(ContactRef);
   const ContactData = querySnapShot.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),
   }));
-  const data = JSON.parse(JSON.stringify(ContactData))
+
+  const data = JSON.parse(JSON.stringify(ContactData));
 
   if (!data.length) {
     throw new Error("Training Data Not Found");
   }
 
-  return (
-    <>
-      <Response ContactData={data} />
-    </>
-  );
+  return <Response ContactData={data} />;
 }
