@@ -1,52 +1,59 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
-
+import { useUser } from "@clerk/nextjs";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const { user } = useUser();
+  const isAdmin = user?.publicMetadata?.role === "admin";
   const menuItems = [
     { label: "What We Do", href: "/maine/whatwedo" },
     { label: "Press", href: "#press" },
     { label: "About Us", href: "#about" },
     { label: "Contact", href: "/maine/contact" },
-    { label: "Response", href: "/maine/contact-response" },
     { label: "Add Event", href: "/maine/add-event" },
     { label: "Upcoming Events", href: "/maine/upcoming-events" },
-    { label: "Registered Events", href: "/maine/registerd-people" },
+
+    ...(isAdmin
+      ? [
+          { label: "Response", href: "/maine/contact-response" },
+
+          { label: "Registered Events", href: "/maine/registerd-people" },
+        ]
+      : []),
   ];
 
   const menuVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 50,
-      transition: { 
+      transition: {
         duration: 0.5,
-        ease: "easeInOut"
-      }
+        ease: "easeInOut",
+      },
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.5,
-        ease: "easeInOut"
-      }
-    }
+        ease: "easeInOut",
+      },
+    },
   };
 
   const headerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: {
         delayChildren: 0.2,
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
@@ -56,13 +63,13 @@ const Header = () => {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
-    <motion.header 
+    <motion.header
       initial="hidden"
       animate="visible"
       variants={headerVariants}
@@ -71,10 +78,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
-          <motion.div 
-            variants={itemVariants}
-            className="flex-shrink-0"
-          >
+          <motion.div variants={itemVariants} className="flex-shrink-0">
             <Link href="/maine">
               <h1 className="text-3xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text hover:from-purple-500 hover:via-pink-600 hover:to-red-600 transition-all duration-500 ease-in-out transform hover:scale-105">
                 EventMaster
@@ -85,10 +89,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8 items-center">
             {menuItems.map((item, index) => (
-              <motion.div 
-                key={item.label}
-                variants={itemVariants}
-              >
+              <motion.div key={item.label} variants={itemVariants}>
                 <Link
                   href={item.href}
                   className="relative group text-gray-300 hover:text-white transition-all duration-300 text-sm font-semibold"
@@ -106,10 +107,7 @@ const Header = () => {
           </nav>
 
           {/* Mobile Menu Toggle */}
-          <motion.div 
-            variants={itemVariants}
-            className="md:hidden"
-          >
+          <motion.div variants={itemVariants} className="md:hidden">
             <button
               aria-label="Toggle Menu"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -137,10 +135,7 @@ const Header = () => {
           >
             <div className="px-2 pt-2 pb-3 space-y-2">
               {menuItems.map((item) => (
-                <motion.div
-                  key={item.label}
-                  variants={itemVariants}
-                >
+                <motion.div key={item.label} variants={itemVariants}>
                   <Link
                     href={item.href}
                     className="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-300 ease-in-out"
@@ -152,7 +147,7 @@ const Header = () => {
                   </Link>
                 </motion.div>
               ))}
-              <motion.div 
+              <motion.div
                 variants={itemVariants}
                 className="flex justify-center py-4"
               >

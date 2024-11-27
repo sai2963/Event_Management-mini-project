@@ -62,7 +62,7 @@ const HomePage = ({ userId }) => {
           </p>
 
           {userId ? (
-            <Link href="/main">
+            <Link href="/maine">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
