@@ -5,7 +5,8 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
-const Header = () => {
+import NavLink from "../components/nav-link";
+const Header = () => {  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user } = useUser();
   const isAdmin = user?.publicMetadata?.role === "admin";
@@ -89,15 +90,7 @@ const Header = () => {
           <nav className="hidden md:flex space-x-8 items-center">
             {menuItems.map((item, index) => (
               <motion.div key={item.label} variants={itemVariants}>
-                <Link
-                  href={item.href}
-                  className="relative group text-gray-300 hover:text-white transition-all duration-300 text-sm font-semibold"
-                >
-                  <span className="bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text group-hover:from-cyan-300 group-hover:to-blue-400 transition-all duration-300">
-                    {item.label}
-                  </span>
-                  <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                </Link>
+                <NavLink href={item.href}>{item.label}</NavLink>
               </motion.div>
             ))}
             <motion.div variants={itemVariants}>
