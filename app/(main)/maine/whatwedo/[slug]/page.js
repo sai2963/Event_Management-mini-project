@@ -85,7 +85,7 @@ export default function EventDetail({ params }) {
                     whileTap={{ scale: 0.95 }}
                     className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-full text-lg shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 ease-in-out transform hover:rotate-1"
                   >
-                    Book Your Experience
+                    Book Your Event
                   </motion.button>
                 </Link>
               </motion.div>

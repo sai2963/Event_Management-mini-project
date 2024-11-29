@@ -6,14 +6,14 @@ import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
 import NavLink from "../components/nav-link";
-const Header = () => {  
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user } = useUser();
   const isAdmin = user?.publicMetadata?.role === "admin";
   const menuItems = [
     { label: "What We Do", href: "/maine/whatwedo" },
-    { label: "Press", href: "#press" },
-    { label: "About Us", href: "#about" },
+
+    { label: "Team", href: "/maine/About-Us" },
     { label: "Contact", href: "/maine/contact" },
     { label: "Add Event", href: "/maine/add-event" },
     { label: "Upcoming Events", href: "/maine/upcoming-events" },
@@ -77,7 +77,7 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
-          {/* Logo */}
+      
           <motion.div variants={itemVariants} className="flex-shrink-0">
             <Link href="/maine">
               <h1 className="text-3xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text hover:from-purple-500 hover:via-pink-600 hover:to-red-600 transition-all duration-500 ease-in-out transform hover:scale-105">
@@ -86,7 +86,7 @@ const Header = () => {
             </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
+          
           <nav className="hidden md:flex space-x-8 items-center">
             {menuItems.map((item, index) => (
               <motion.div key={item.label} variants={itemVariants}>
@@ -98,7 +98,7 @@ const Header = () => {
             </motion.div>
           </nav>
 
-          {/* Mobile Menu Toggle */}
+         
           <motion.div variants={itemVariants} className="md:hidden">
             <button
               aria-label="Toggle Menu"
@@ -115,7 +115,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -150,7 +150,7 @@ const Header = () => {
         )}
       </AnimatePresence>
 
-      {/* Overlay for Mobile Menu */}
+     
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -164,7 +164,6 @@ const Header = () => {
       </AnimatePresence>
     </motion.header>
   );
-  
 };
 
 export default Header;

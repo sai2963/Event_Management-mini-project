@@ -6,6 +6,7 @@ import { db } from "../../../../../firebase/clientApp";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Euro, Calendar, MapPin, Clock, Users } from "lucide-react";
+import {use} from "react"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -14,7 +15,7 @@ const fadeInUp = {
 };
 
 export default function ExploreEvent({ params }) {
-  const eventId = params?.slug;
+  const eventId = use(params)?.slug;
   const [exploreEvent, setExploreEvent] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
