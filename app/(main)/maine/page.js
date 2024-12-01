@@ -55,17 +55,20 @@ const EventLanding = () => {
       description:
         "Bespoke experiences crafted with meticulous attention to detail",
       icon: "✨",
+      href: "/maine/whatwedo",
     },
     {
       title: "Global Reach",
       description:
         "Creating memorable moments across prestigious venues worldwide",
       icon: "🌎",
+      href: "/maine/upcoming-events",
     },
     {
       title: "Expert Team",
       description: "Industry veterans dedicated to exceeding expectations",
       icon: "👥",
+      href: "/maine/About-Us",
     },
   ];
 
@@ -105,7 +108,7 @@ const EventLanding = () => {
               </RevealOnScrollComponent>
 
               <RevealOnScrollComponent delay={0.6}>
-                <Link href='maine/whatwedo'>
+                <Link href="maine/whatwedo">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -131,17 +134,19 @@ const EventLanding = () => {
               key={`feature-${index}`}
               delay={index * 0.2}
             >
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                className="group relative bg-gradient-to-br from-gray-800/50 to-purple-900/30 p-8 rounded-2xl backdrop-blur-sm hover:bg-gradient-to-br hover:from-purple-900/50 hover:to-pink-900/30 transition-all duration-300"
-              >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-400">{feature.description}</p>
-                <div className="absolute inset-0 border border-purple-500/20 rounded-2xl group-hover:border-purple-500/40 transition-colors duration-300" />
-              </motion.div>
+              <Link href={feature.href}>
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  className="group relative bg-gradient-to-br from-gray-800/50 to-purple-900/30 p-8 rounded-2xl backdrop-blur-sm hover:bg-gradient-to-br hover:from-purple-900/50 hover:to-pink-900/30 transition-all duration-300"
+                >
+                  <div className="text-4xl mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-400">{feature.description}</p>
+                  <div className="absolute inset-0 border border-purple-500/20 rounded-2xl group-hover:border-purple-500/40 transition-colors duration-300" />
+                </motion.div>
+              </Link>
             </RevealOnScrollComponent>
           ))}
         </div>
