@@ -134,17 +134,17 @@ export default function AboutUsPage() {
             {
               name: "JJ Eshwar",
               role: "Creative Director",
-              image: "/api/placeholder/300/300",
+              image: "https://files.edgestore.dev/gyn1n3t19n3gu894/publicFiles/_public/9b32d720-54c4-4d4c-8e20-bf078ab89893.jpg",
             },
             {
               name: "D Venkat Sai",
               role: "Event Strategist",
-              image: "/api/placeholder/300/300",
+              image: "https://files.edgestore.dev/gyn1n3t19n3gu894/publicFiles/_public/838143be-41a4-4e60-8949-4d3f7e89b09c.jpg",
             },
             {
               name: "Madhu",
               role: "Design Coordinator",
-              image: "/api/placeholder/300/300",
+              image: "https://files.edgestore.dev/gyn1n3t19n3gu894/publicFiles/_public/392a9106-335c-4616-8962-06e69e7d1d0e.jpg",
             },
           ].map((member, index) => (
             <motion.div
